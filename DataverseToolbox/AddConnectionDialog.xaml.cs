@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Input;
 using DataverseToolbox.Services;
 using Microsoft.PowerPlatform.Dataverse.Client;
 
@@ -61,7 +62,7 @@ public partial class AddConnectionDialog : Window
     {
         return await Task.Run(() =>
         {
-            var service = new ServiceClient(instanceUrl: dataverseUri, useUniqueInstance: true);
+            var service = new ServiceClient(dataverseUri);
             if (service.IsReady)
             {
                 return service;
