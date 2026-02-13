@@ -62,7 +62,7 @@ public partial class AddConnectionDialog : Window
     {
         return await Task.Run(() =>
         {
-            var service = new ServiceClient(dataverseUri);
+            var service = new ServiceClient(dataverseUri.ToString());
             if (service.IsReady)
             {
                 return service;
