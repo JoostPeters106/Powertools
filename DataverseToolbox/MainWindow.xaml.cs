@@ -58,7 +58,7 @@ public partial class MainWindow : Window
         try
         {
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
-            var service = await Task.Run(() => new ServiceClient(new Uri(selectedConnection.Url)));
+            var service = await Task.Run(() => new ServiceClient(selectedConnection.Url));
 
             if (!service.IsReady)
             {
