@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Input;
 using DataverseToolbox.Models;
 using DataverseToolbox.Services;
 using Microsoft.PowerPlatform.Dataverse.Client;
@@ -57,9 +58,7 @@ public partial class MainWindow : Window
         try
         {
             Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
-            var service = await Task.Run(() => new ServiceClient(
-                instanceUrl: new Uri(selectedConnection.Url),
-                useUniqueInstance: true));
+            var service = await Task.Run(() => new ServiceClient(new Uri(selectedConnection.Url)));
 
             if (!service.IsReady)
             {
